@@ -1,9 +1,8 @@
 provider "aws" {
+  profile = "Dev1"
   region = "us-west-2"
-  access_key = 
-  secret_key = 
+  
 }
-
 
 data "aws_ami" "ubuntu" {
   most_recent = true
