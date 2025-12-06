@@ -78,6 +78,8 @@ Comments throughout the code explain key design decisions, trade-offs, and how t
 
 ## Getting Started
 
+'''bash
+
 1. Install Terraform and configure AWS credentials locally.
 2. Clone this repository:
 
@@ -98,3 +100,4 @@ terraform plan
 terraform apply
 
 7. After apply completes, use the ALB DNS output to access the sample web application in a browser.
+   '''
