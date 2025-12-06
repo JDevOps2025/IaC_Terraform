@@ -78,26 +78,26 @@ Comments throughout the code explain key design decisions, trade-offs, and how t
 
 ## Getting Started
 
-'''bash
+```bash
 
 1. Install Terraform and configure AWS credentials locally.
 2. Clone this repository:
 
-git clone <your-repo-url>.git
-cd <repo-name>
+    git clone <your-repo-url>.git
+    cd <repo-name>
 
 3. Review and, if required, update variables in `variables.tf`.
 4. Initialize Terraform:
 
-terraform init
+    terraform init
 
 5. Review the planned changes:
 
-terraform plan
+    terraform plan
 
 6. Apply the configuration:
 
-terraform apply
+    terraform apply
 
 7. After apply completes, use the ALB DNS output to access the sample web application in a browser.
-   '''
+```
