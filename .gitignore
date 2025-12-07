@@ -1,10 +1,24 @@
 # .gitignore
 *.tfstate
 *.tfstate.*
-.terraform/
+**/.terraform/*
 crash.log
+crash.*.log
 override.tf
 override.tf.json
-_terraform.rc
+*_override.tf
+*_override.tf.json
+.terraformrc
 terraform.rc
 .aws/
+*.tfvars
+*.tfvars.json
+*.tfplan
+*.plan
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

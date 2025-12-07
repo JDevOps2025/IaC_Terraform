@@ -1,25 +1,35 @@
-provider "aws" {
-  profile = "Dev1"
-  region = "us-west-2"
-  
-}
+# This file configures the AWS provider for Terraform
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
+# Service provider config
 
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
   }
 
-  owners = ["099720109477"] # Canonical
+  required_version = ">= 1.0"
 }
 
-resource "aws_instance" "app_server" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
+provider "aws" {
+  region  = var.aws_region
+  profile = "Dev1" # Profile is defined in .aws/credentials
+}
 
-  tags = {
-    Name = "learn-terraform"
+
+# Local Variables
+
+locals {
+  environment  = var.environment
+  project_name = var.project_name
+
+  # Tags applied to all resources
+  tagging = {
+    Project     = local.project_name
+    Environment = local.environment
+    ManagedBy   = "Terraform"
+    CreatedAt   = timestamp()
   }
 }
