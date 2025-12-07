@@ -15,11 +15,11 @@ systemctl start nginx
 systemctl enable nginx
 
 # Create a simple HTML page showing which server is serving the request
-cat > /var/www/html/index.html <<EOF
+cat > /var/www/html/index.html <<'EOF'
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Web Server ${server_name}</title>
+    <title>Web Server</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,9 +44,7 @@ cat > /var/www/html/index.html <<EOF
 </head>
 <body>
     <div class="container">
-        <h1>🎉 Hello from <span class="highlight">${server_name}</span></h1>
-        <p>Instance ID: <span class="highlight">$INSTANCE_ID</span></p>
-        <p>Availability Zone: <span class="highlight">$REGION</span></p>
+        <h1>Hello</h1>
         <p>This instance is running Nginx and is part of a load-balanced cluster.</p>
     </div>
 </body>

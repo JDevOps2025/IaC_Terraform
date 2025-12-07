@@ -64,7 +64,7 @@ resource "aws_security_group" "web_server" {
     to_port         = 80
     protocol        = "tcp"
     security_groups = var.enable_alb ? [aws_security_group.alb[0].id] : []
-    cidr_blocks     = !var.enable_alb ? ["0.0.0.0/0"] : []
+    cidr_blocks     = !var.enable_alb ? ["0.0.0.0/0"] : null
   }
 
   # Allow HTTPS (port 443) from ALB
@@ -74,7 +74,7 @@ resource "aws_security_group" "web_server" {
     to_port         = 443
     protocol        = "tcp"
     security_groups = var.enable_alb ? [aws_security_group.alb[0].id] : []
-    cidr_blocks     = !var.enable_alb ? ["0.0.0.0/0"] : []
+    cidr_blocks     = !var.enable_alb ? ["0.0.0.0/0"] : null
   }
 
   # Allow SSH (port 22) for management
@@ -83,7 +83,7 @@ resource "aws_security_group" "web_server" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = var.allowed_ssh_cidr
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # Allow all outbound traffic

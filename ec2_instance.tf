@@ -26,9 +26,11 @@ resource "aws_instance" "web_1" {
   associate_public_ip_address = true
 
   # Script to install and configure Nginx
-  user_data = base64encode(templatefile("${path.module}/script.sh", {
-    server_name = "Web Server 1 (AZ1)"
-  }))
+  user_data = <<-EOF
+              # Start and enable Nginx
+              sudo systemctl enable nginx
+              sudo systemctl start nginx
+              EOF
 
   # Name tag for easy identification
   tags = merge(
@@ -59,9 +61,12 @@ resource "aws_instance" "web_2" {
   associate_public_ip_address = true
 
   # Script to install and configure Nginx
-  user_data = base64encode(templatefile("${path.module}/script.sh", {
-    server_name = "Web Server 2 (AZ2)"
-  }))
+  user_data = <<-EOF
+              # Start and enable Nginx
+              sudo systemctl enable nginx
+              sudo systemctl start nginx
+              EOF
+
 
   # Name tag for easy identification
   tags = merge(

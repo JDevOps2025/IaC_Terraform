@@ -38,10 +38,10 @@ resource "aws_lb_target_group" "web" {
 
   # Health check configuration
   health_check {
-    healthy_threshold   = 2  # 2 successful checks to be healthy
-    unhealthy_threshold = 2  # Unhealthy after 2 failures
+    healthy_threshold   = 3  # 3 successful checks to be healthy
+    unhealthy_threshold = 3  # Unhealthy after 2 failures
     timeout             = 3  # Timeout for health checks
-    interval            = 30 # Health check interval
+    interval            = 60 # Health check interval
     path                = "/"
     matcher             = "200" # HTTP response code expected
   }
