@@ -17,7 +17,7 @@ output "public_subnet_ids" {
 
 output "private_subnet_ids" {
   description = "IDs of private subnets"
-  value       = [aws_subnet. private_1.id, aws_subnet.private_2.id]
+  value       = [aws_subnet.private_1.id, aws_subnet.private_2.id]
 }
 
 output "internet_gateway_id" {
@@ -27,7 +27,7 @@ output "internet_gateway_id" {
 
 output "nat_gateway_eip" {
   description = "Elastic IP of the NAT Gateway"
-  value       = aws_eip.nat. public_ip
+  value       = aws_eip.nat.public_ip
 }
 
 output "web_server_ids" {
@@ -47,7 +47,7 @@ output "web_server_public_ips" {
 
 output "alb_dns_name" {
   description = "DNS name of the Application Load Balancer"
-  value       = var.enable_alb ? aws_lb. main[0].dns_name : "ALB not enabled"
+  value       = var.enable_alb ? aws_lb.main[0].dns_name : "ALB not enabled"
 }
 
 output "alb_arn" {
@@ -57,7 +57,7 @@ output "alb_arn" {
 
 output "web_server_sg_id" {
   description = "Security Group ID for web servers"
-  value       = aws_security_group. web_server.id
+  value       = aws_security_group.web_server.id
 }
 
 output "alb_sg_id" {
